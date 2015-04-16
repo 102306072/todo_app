@@ -1,0 +1,3121 @@
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTodos (20150416042136)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "is_done" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150416042136"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-04-16 12:23:54 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 2525ms (Views: 2497.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 12:23:57 +0800
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 12:24:00 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (93.0ms)
+  Rendered todos/new.html.erb within layouts/application (131.7ms)
+Completed 200 OK in 164ms (Views: 159.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 12:24:07 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JVXkNRF84mNsPCz7TRvdkQsWDVTMHh/wLKlfAHszp9NoZiltgDYJggGaz81xCtkh10Spr3fSg/h0tq4d6y5m2w==", "todo"=>{"content"=>"yaaa", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "yaaa"], ["is_done", "f"], ["created_at", "2015-04-16 04:24:07.301163"], ["updated_at", "2015-04-16 04:24:07.301163"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos/1
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos/1" for ::1 at 2015-04-16 12:24:07 +0800
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered todos/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 34ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:24:11 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 27.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:26:03 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:42:30 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 12:42:30 +0800
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:42:33 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"SzbE5QHhzX5NZDcj/x42xPF+9NOEpzZuK4vPXDcdhKwGBQm9kKsmnyDC1BXDDzJ0LSxQKD9rqmZzlD5BpwBFpA==", "id"=>"1"}
+Completed 500 Internal Server Error in 6ms
+
+NameError (undefined local variable or method `todo' for #<TodosController:0x007fcf13319040>):
+  app/controllers/todos_controller.rb:65:in `done'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (192.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (249.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:43:25 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.4ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:43:27 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"GfDjtDITrtDVoSmE6aT7RsGMCfR9Ofs89RYoWiuHPKNUwy7so1lFMbgHyrLVtf/2Hd6tD8b1ZzStCdlHu5r9qw==", "id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 8ms
+
+NameError (undefined local variable or method `topics_path' for #<TodosController:0x007fcf14f861b0>):
+  app/controllers/todos_controller.rb:67:in `done'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (33.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:43:39 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 59ms (Views: 55.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:43:39 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:43:41 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"zdTnKuNJ5ati2O1Y/qKFDTX5mLDZ3CQImR7UxBAl3lmA5ypycgMOSg9+Dm7Cs4G96as8S2IQuADBASXZgDgfUQ==", "id"=>"1"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:43:41 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:43:44 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"Dc6jzCQ8P1JNTLGJXSSHazUen3GN3FFO7dh02sZsO8RA/W6UtXbUsyDqUr9hNYPb6Uw7ijYQzUa1x4XHVnH6zA==", "id"=>"1"}
+  [1m[35mTodo Load (0.5ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:43:44 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:43:44 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"r71sVsWQnTA53qyCLSrXzv+rLqzoRdOBAeFpvKfoj3jijqEOVNp20VR4T7QRO9N+I/mKV1OJT4lZ/pihN/VOcA==", "id"=>"1"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:43:44 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:43:45 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"V/meIZpxrFsipSgPq6taUPaD7gTuJq5oL+53hT4FjvAaylN5CztHuk8DyzmXul7gKtFK/1XqMmB38YaYrhhP+A==", "id"=>"1"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:43:45 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2015-04-16 12:45:16 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered todos/_form.html.erb (2.2ms)
+  Rendered todos/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/1" for ::1 at 2015-04-16 12:45:19 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tiqzm5toztekw805Uz9BIaGD4BH5RXmXW61ku90kQhX7GX7DCiIlNsllLg9vLkWRfdFE6kKJ5Z8DspWmTTmDHQ==", "todo"=>{"content"=>"yaaa", "is_done"=>"1"}, "commit"=>"Update Todo", "id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "t"], ["updated_at", "2015-04-16 04:45:19.500702"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos/1
+Completed 302 Found in 17ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/todos/1" for ::1 at 2015-04-16 12:45:19 +0800
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered todos/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:45:21 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/1/edit" for ::1 at 2015-04-16 12:45:22 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered todos/_form.html.erb (1.7ms)
+  Rendered todos/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/1" for ::1 at 2015-04-16 12:45:24 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PwQ8p1CkM7WQ8uxcgu44+Xk7k8h75EFBPoIanO+u3LFyN/H/we7YVP1UD2q+/zxJpWk3M8Ao3UlmneuBf7MduQ==", "todo"=>{"content"=>"yaaa", "is_done"=>"0"}, "commit"=>"Update Todo", "id"=>"1"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "f"], ["updated_at", "2015-04-16 04:45:24.257678"], ["id", 1]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos/1
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos/1" for ::1 at 2015-04-16 12:45:24 +0800
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered todos/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:45:26 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/1/done" for ::1 at 2015-04-16 12:45:27 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"ergk+gSfrZBdL3ZYP9rGRdizOH5nLMZuxD1wfWOcN703i+mildVGcTCJlW4Dy8L1BOGchdzgWmacIoFg84H2tQ==", "id"=>"1"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:45:27 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 38ms (Views: 37.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:52:43 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (31.8ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:52:43 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:83: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (32.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:53:32 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 51ms (Views: 48.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/todos/1" for ::1 at 2015-04-16 12:53:36 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6f4Z6vjAO2hB4DDoh/z03bPjLz2LcGGZUUzDdlHxcf2kzdSyaYrQiSxG09677fBtb7GLxjC8/ZEJUzJrweyw9Q==", "id"=>"1"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 18ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:36 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 12:53:37 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.7ms)
+  Rendered todos/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 12:53:39 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4BqhOhPiMEmC4hZMwjLMcHqiZsycKilfklGCTSYcGzStKWxigqjbqO9E9Xr+I8jApvDCNyfmtVfKTnNQtgHaPA==", "todo"=>{"content"=>"kkkk", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "kkkk"], ["is_done", "f"], ["created_at", "2015-04-16 04:53:39.675592"], ["updated_at", "2015-04-16 04:53:39.675592"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:39 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:53:40 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"5swN9e6YPGypn4KFD3ge0YtSsYWopfe3gxrfPw5d2wqr/8Ctf9LXjcQ5YbMzaRphVwAVfhNpa7/bBS4inkAaAg==", "id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:40 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:53:42 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"LVqCdYWiw7cETbUYtKX2FBKUvoYLrVkh5I3Ip56TIRZgaU8tFOgoVmnrVi6ItPKkzsYafbBhxSm8kjm6Do7gHg==", "id"=>"2"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:42 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:53:42 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"gubQE+OUJIvrAnpmTEVyH+z5PD0vziTrqIAlwpL0VOrP1R1Lct7PaoakmVBwVHavMKuYxpQCuOPwn9TfAumV4g==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:42 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/2/edit" for ::1 at 2015-04-16 12:53:43 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered todos/_form.html.erb (1.7ms)
+  Rendered todos/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/2" for ::1 at 2015-04-16 12:53:47 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ds1aiQ8WYO5qi921M6/2XSOOYle58g23PSmMKk8dg5RD/pfRnlyLDwctPoMPvvLt/9zGrAI+kb9lNn033wBCnA==", "todo"=>{"content"=>"kkkk", "is_done"=>"1"}, "commit"=>"Update Todo", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "t"], ["updated_at", "2015-04-16 04:53:47.492171"], ["id", 2]]
+  [1m[35m (3.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 11ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:53:47 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:53:48 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"7RsYEpvBQUDbMulDQMwe24BjwuioluR42MdA3mzH0BOgKNVKCouqobaUCnV83RprXDFmExNaeHCA2LHD/NoRGw==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Completed 500 Internal Server Error in 4ms
+
+ActionView::MissingTemplate (Missing template todos/done, application/done with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Mosquito/railsbridge/todo_app/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Mosquito/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:151:in `block in halting_and_conditional'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.0) lib/rack/etag.rb:24:in `call'
+  rack (1.6.0) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.0) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.0) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/Mosquito/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Mosquito/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Mosquito/.rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (23.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (31.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 12:55:18 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:20 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"L5eBvjHjyHKFCk3kPPYdG4BlMlItxYCkzb9Tc+vhWyRipEzmoKkjk+isrtIA5xmrXDeWqZYJHKyVoKJue/yaLA==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:20 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:22 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"WGqJn16htDKB86lXc9EPWG+fZbiPT3VWmRWbtdIZI8AVWUTHz+tf0+xVSmFPwAvos83BQzSD6V7BCmqoQgTiyA==", "id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:22 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/2/edit" for ::1 at 2015-04-16 12:55:22 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered todos/_form.html.erb (1.8ms)
+  Rendered todos/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/2" for ::1 at 2015-04-16 12:55:24 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WQTnQQpgn86IBNxejRdGUU0rLQ2dAVDxcio+G6v2YJMUNyoZmyp0L+WiP2ixBkLhkXmJ9ibNzPkqNc8GO+uhmw==", "todo"=>{"content"=>"kkkk", "is_done"=>"0"}, "commit"=>"Update Todo", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 04:55:24.509751"], ["id", 2]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 13ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:24 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:25 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"yccFIHZhXBzDY5S6MaonuIVsf8WVJLMhlKYPSBjl4h2E9Mh45yu3/a7Fd4wNuyMIWT7bPi7oLynMuf5ViPgjFQ==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:25 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:26 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"jsqEYOpdz5rDgnyYXn1nh2iDbYt08nSy9wE60/Aj8WzD+Uk4excke64kn65ibGM3tNHJcM8+6LqvHsvOYD4wZA==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:26 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"QRTzEiRxQpvrHgwfxqzdt2yeOp8poEiEiwt2Iv+HHVMMJz5KtTupeoa47yn6vdkHsMyeZJJs1IzTFIc/b5rcWw==", "id"=>"2"}
+  [1m[35mTodo Load (0.4ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"diGwkId2vFm8kcYVU4rCtYqEK29nQbvDPLqy1enD8F07En3IFjxXuNE3JSNvm8YFVtaPlNyNJ8tkpUPIed4xVQ==", "id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"Mqrc7nxxhKIm9w4NchDXTERSater7dkB/wHVD1wUiFJ/mRG27TtvQ0tR7TtOAdP8mADOLBAhRQmnHiQSzAlJWg==", "id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:27 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:51 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 12:55:51 +0800
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:53 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"WfN6tWJC50774MmeZqCcIUBcGkW9+zokfvneLZ1fXiIUwLft8wgMr5ZGKqhasZiRnA6+vgY3piwm5i8wDUKfKg==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:53 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:55:59 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"EUgaluPiuPJRCVPhmiC7om5oGstTva2vqJkbOjiQMI5ce9fOcqhTEzyvsNemMb8Ssjq+MOhxMafwhuonqI3xhg==", "id"=>"2"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:55:59 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:56:02 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"WopXEZjhhnl8NvJC7vwJGdhqnK5Q7hXp8mj7NaqMiE0XuZpJCattmBGQEXTS7Q2pBDg4VesiieGqdwooOpFJRQ==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:56:02 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:56:03 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"tqFSuGodwb5m4mWst/3jOrgfh6002NlOHxARZkTCDzz7kp/g+1cqXwtEhpqL7OeKZE0jVo8URUZHD+B71N/ONA==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:56:03 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 12:56:03 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"qrBTIMBETlgnlUJM+TR7qtJzgK30I/y5HgQgp333O97ng554UQ6luUozoXrFJX8aDiEkVk/vYLFGG9G67er61g==", "id"=>"2"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 12:56:03 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:00:28 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&done=false" for ::1 at 2015-04-16 13:00:29 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&done=true" for ::1 at 2015-04-16 13:00:32 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "done"=>"true"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&done=false" for ::1 at 2015-04-16 13:00:33 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&done=true" for ::1 at 2015-04-16 13:00:34 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "done"=>"true"}
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&done=false" for ::1 at 2015-04-16 13:00:36 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:00:53 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:00:53 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:00:55 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:00:56 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:04:03 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:04:20 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 13:04:20 +0800
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:04:23 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"LsxwMPpBWjmnOkQE3nEvxso3+KfqaWm/pfblaLOUa+tj/71oawux2MqcpzLiYCt2FmVcXFGl9bf96RR1I4mq4w==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:04:23 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:04:24 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"lQJWU79AmIFBbXvtQhozuvIYBLTm3/ucTN7/Sw9AzP7YMZsLLgpzYCzLmNt+CzcKLkqgT10TZ5QUwQ5Wn10N9g==", "id"=>"2"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:04:24 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/2/edit" for ::1 at 2015-04-16 13:04:25 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered todos/_form.html.erb (1.8ms)
+  Rendered todos/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/2" for ::1 at 2015-04-16 13:04:27 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rQ+nFEdtHlLys6DKgSSKjw3yTYNp6umHixlL+fOINergPGpM1if1s58VQ/y9NY4/0aDpeNImdY/TBrrkY5X04g==", "todo"=>{"content"=>"kkkk", "is_done"=>"1"}, "commit"=>"Update Todo", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:04:27.786505"], ["id", 2]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:04:27 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:06:17 +0800
+Processing by TodosController#index as HTML
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 4ms
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:30: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+...ffer.append=( if todo.is_done );@output_buffer.safe_append='
+...                               ^
+/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:32: syntax error, unexpected keyword_else, expecting ')'
+'.freeze;           else 
+                        ^
+/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;           end 
+                       ^
+/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:50: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;     end 
+                 ^
+/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:58: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/Mosquito/railsbridge/todo_app/app/views/todos/index.html.erb:60: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/todos/index.html.erb:30: syntax error, unexpected ')', expecting keyword_then or ';' or '\n'
+  app/views/todos/index.html.erb:32: syntax error, unexpected keyword_else, expecting ')'
+  app/views/todos/index.html.erb:34: syntax error, unexpected keyword_end, expecting ')'
+  app/views/todos/index.html.erb:50: syntax error, unexpected keyword_end, expecting ')'
+  app/views/todos/index.html.erb:58: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/todos/index.html.erb:60: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (32.9ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:06:37 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 38ms (Views: 37.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:06:41 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"sz+5BljvYeTd1RagvUuOs7sdJuSpGzR53lmgXFz/GVz+DHReyaWKBbBz9ZaBWooDZ0+CHxLXqHGGRlFBzOLYVA==", "id"=>"2"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:06:41 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/2/edit" for ::1 at 2015-04-16 13:06:42 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered todos/_form.html.erb (1.7ms)
+  Rendered todos/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/2" for ::1 at 2015-04-16 13:06:43 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZXSWUXhlBWRu8jNMMLN6oFtt3nNw+0bvvpczDNt4C2soR1sJ6S/uhQNU0HoMon4Qhz96iMs32ufmiMIRS2XKYw==", "todo"=>{"content"=>"kkkk", "is_done"=>"0"}, "commit"=>"Update Todo", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:06:43.790494"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:06:43 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:06:47 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:06:49 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:09:36 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.4ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 58ms (Views: 55.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:09:36 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:09:38 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"FpN4AK5374Yvs1fL8Fy3vmWnQLGB9YLARD50FsmdnmVboLVYPz0EZ0IVtP3MTbMOufXkSjo5HsgcIYULWYBfbQ==", "id"=>"2"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:09:38.908113"], ["id", 2]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 17ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:09:38 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 35.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:09:40 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"YalbJjH2EepRDL6ZlplWRqKtrFYGsXLrulwU4g4zZQQsmpZ+oLz6CzyqXa+qiFL2fv8Irb197uPiQ+X/ni6kDA==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:09:40.713085"], ["id", 2]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:09:40 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:09:41 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"cZYYnq+eCQOoaDCwslMHChGdWf+YHMNUtu99JCZZzkY8pdXGPtTi4sXO04aOQgO6zc/9BCPQX1zu8Iw5tkQPTg==", "id"=>"2"}
+  [1m[35mTodo Load (0.8ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:09:41.479554"], ["id", 2]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 9ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:09:41 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:09:42 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:09:43 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.5ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:09:45 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:09:49 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:09:50 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:15:11 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:13: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/todos_controller.rb:13: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (14.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (29.9ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:15:33 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:94: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/todos_controller.rb:94: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (32.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:16:30 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:16:33 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:16:34 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.4ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:16:34 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'[0m
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:16:35 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:26:18 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:21 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.5ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:22 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:23 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:24 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:44 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 13:26:44 +0800
+
+
+Started GET "/" for ::1 at 2015-04-16 13:26:47 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 46ms (Views: 44.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:26:49 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.7ms)
+  Rendered todos/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 13:26:54 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CLRStSlVB6KBz+4DJRMC6QcieWzWmx30py6lgKphlRJFh5/tuB/sQ+xpDTUZAgZZ23Ddl21Xgfz/MVSdOnxUGg==", "todo"=>{"content"=>"sdsd", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "sdsd"], ["is_done", "f"], ["created_at", "2015-04-16 05:26:54.156674"], ["updated_at", "2015-04-16 05:26:54.156674"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:26:54 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:58 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:26:59 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:00 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:00 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:27:44 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 43ms (Views: 40.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:45 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:47 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:47 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 41ms (Views: 39.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:48 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:48 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:49 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:27:50 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"b9J4MzLg94qoX0+bRjA1o6LpDiHyhrTNzc6tPTT1Ep4i4bVro6oca8X5rK16ITETfruq2klKKMWV0VwgpOjTlg==", "id"=>"2"}
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:27:50.894615"], ["id", 2]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:27:50 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:52 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/2/done" for ::1 at 2015-04-16 13:27:53 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"12bUok9+XY4UkiJT2KmS2CL3k8WWcjY0NspUqR0kln6aVRn63jS2b3k0wWXkuJZo/qU3Pi2+qjxu1aW0jTlXdg==", "id"=>"2"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "t"], ["updated_at", "2015-04-16 05:27:53.236778"], ["id", 2]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:27:53 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/3/done" for ::1 at 2015-04-16 13:27:53 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"6g2c937/oVt3MErHXjPdLFIvGGUYqCCKCyfNt7KUbfGnPlGv77VKuhqWqfFiItmcjn28nqNkvIJTODyqIoms+Q==", "id"=>"3"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:27:53.925769"], ["id", 3]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:27:53 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/3/done" for ::1 at 2015-04-16 13:27:54 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"8uJQBQ7Y4oxqHeKYE4WCRSK2RwMS7tSjzkN71z/iQfS/0Z1dn5IJbQe7Aa4vlIb1/uTj+KkiSKuWXIrKr/+A/A==", "id"=>"3"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:27:54.500791"], ["id", 3]]
+  [1m[35m (9.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 18ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:27:54 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:27:57 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:33:04 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?is_done=true&commit=search&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:33:11 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"is_done"=>"true", "commit"=>"search", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?is_done=false&commit=search&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:33:25 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"is_done"=>"false", "commit"=>"search", "utf8"=>"✓"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?is_done=&commit=search&utf8=%E2%9C%93" for ::1 at 2015-04-16 13:33:27 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"is_done"=>"", "commit"=>"search", "utf8"=>"✓"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:34:11 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:34:14 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:36:41 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 43ms (Views: 40.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:36:43 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (1.5ms)[0m  SELECT "todos".* FROM "todos" WHERE (%true%)
+SQLite3::SQLException: near "%": syntax error: SELECT "todos".* FROM "todos" WHERE (%true%)
+  Rendered todos/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (SQLite3::SQLException: near "%": syntax error: SELECT "todos".* FROM "todos" WHERE (%true%)):
+    24: 
+    25: 
+    26: 
+    27:     <% @todos.each do |todo| %>
+    28:       <tr>
+    29:         <td><%= todo.content %></td>
+    30:         <td>
+  app/views/todos/index.html.erb:27:in `_app_views_todos_index_html_erb___3107231328173252538_70263740260200'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (14.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (30.7ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:36:57 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:37:02 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (1.2ms)[0m  SELECT "todos".* FROM "todos" WHERE (%false%)
+SQLite3::SQLException: near "%": syntax error: SELECT "todos".* FROM "todos" WHERE (%false%)
+  Rendered todos/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (SQLite3::SQLException: near "%": syntax error: SELECT "todos".* FROM "todos" WHERE (%false%)):
+    24: 
+    25: 
+    26: 
+    27:     <% @todos.each do |todo| %>
+    28:       <tr>
+    29:         <td><%= todo.content %></td>
+    30:         <td>
+  app/views/todos/index.html.erb:27:in `_app_views_todos_index_html_erb___3107231328173252538_70263740260200'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (23.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (38.5ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:37:32 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.6ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 51ms (Views: 47.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:37:32 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:37:33 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:37:34 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.4ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:38:53 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:38:54 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE (is_done like '%true%')
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:38:55 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE (is_done like '%false%')[0m
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:38:56 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE (is_done like '%true%')
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:38:57 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (1.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE (is_done like '%false%')[0m
+  Rendered todos/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 42ms (Views: 39.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:38:59 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE (is_done like '%true%')
+  Rendered todos/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:39:00 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE (is_done like '%false%')[0m
+  Rendered todos/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:39:01 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE (is_done like '%true%')
+  Rendered todos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 84ms (Views: 83.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:39:02 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE (is_done like '%false%')[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 56ms (Views: 54.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:39:02 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE (is_done like '%true%')
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:39:03 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE (is_done like '%false%')[0m
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:39:59 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:13: syntax error, unexpected tCONSTANT, expecting ')'
+  # GET /todos/1
+       ^
+/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:13: syntax error, unexpected tCONSTANT, expecting ')'
+  app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (12.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (27.5ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:39:59 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:13: syntax error, unexpected tCONSTANT, expecting ')'
+  # GET /todos/1
+       ^
+/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:13: syntax error, unexpected tCONSTANT, expecting ')'
+  app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (33.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:40:10 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:9: syntax error, unexpected '}', expecting =>
+      @todos = @todos.where(:is_done => {params[:is_done]})
+                                                          ^
+/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:9: syntax error, unexpected '}', expecting =>
+  app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (32.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:40:17 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 13:40:17 +0800
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:40:18 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:40:19 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?  [["is_done", "true"]]
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:40:20 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:40:20 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?  [["is_done", "true"]]
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:40:21 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.8ms)
+  Rendered todos/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 13:40:25 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9dslOPj66MggmoBI16OEt3Ei4cQR3ehG04F9AOAEV9G46OhgabADKU08Y37rsoAHrXBFP6oRdE6LnowdcBmW2Q==", "todo"=>{"content"=>"...", "is_done"=>"1"}, "commit"=>"Create Todo"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "..."], ["is_done", "t"], ["created_at", "2015-04-16 05:40:25.282356"], ["updated_at", "2015-04-16 05:40:25.282356"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:40:25 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:40:27 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:40:29 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?  [["is_done", "true"]]
+  Rendered todos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:42:29 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'
+/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'
+  app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (28.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (50.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:42:29 +0800
+
+SyntaxError (/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'
+/Users/Mosquito/railsbridge/todo_app/app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/todos_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'
+  app/controllers/todos_controller.rb:87: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.1ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (33.6ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:42:43 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:42:43 +0800
+
+
+Started POST "/todos/4/done" for ::1 at 2015-04-16 13:42:45 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"hUPhezAKOlOkJJnuiX1rxosXlOMH92rvpj+h6jOOT0/IcCwjoUDRssmCeti1bG92V0UwGLw79uf+IFD3o5OORw==", "id"=>"4"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "f"], ["updated_at", "2015-04-16 05:42:45.469477"], ["id", 4]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:42:45 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:42:45 +0800
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:42:48 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:44:10 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:44:12 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 36ms (Views: 35.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:44:13 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 50ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:44:14 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?[0m  [["is_done", "true"]]
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:44:14 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = ?  [["is_done", "false"]]
+  Rendered todos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:44:15 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:46:40 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 40ms (Views: 37.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:46:42 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:46:44 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:46:44 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:46:45 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:46:46 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:46:47 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:46:47 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:48:35 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:48:37 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.6ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'[0m
+  Rendered todos/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:48:38 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:48:40 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:49:05 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (16.4ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `done_todo_path' for #<#<Class:0x007fcf18c1e5c8>:0x007fcf18bf2bd0>):
+    41:         
+    42:         <td>
+    43:           <% if todo.is_done %>
+    44:           <%= button_to '未完成', done_todo_path(todo), method: :post %>
+    45:           <% else %>
+    46:           <%= button_to '完成', done_todo_path(todo), method: :post %>
+    47:           <% end %>
+  app/views/todos/index.html.erb:44:in `block in _app_views_todos_index_html_erb___3107231328173252538_70263725463460'
+  app/views/todos/index.html.erb:31:in `_app_views_todos_index_html_erb___3107231328173252538_70263725463460'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.7ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (13.6ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (32.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:49:06 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `done_todo_path' for #<#<Class:0x007fcf18c1e5c8>:0x007fcf12994d80>):
+    41:         
+    42:         <td>
+    43:           <% if todo.is_done %>
+    44:           <%= button_to '未完成', done_todo_path(todo), method: :post %>
+    45:           <% else %>
+    46:           <%= button_to '完成', done_todo_path(todo), method: :post %>
+    47:           <% end %>
+  app/views/todos/index.html.erb:44:in `block in _app_views_todos_index_html_erb___3107231328173252538_70263725463460'
+  app/views/todos/index.html.erb:31:in `_app_views_todos_index_html_erb___3107231328173252538_70263725463460'
+
+
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Mosquito/.rvm/gems/ruby-2.1.5/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (33.8ms)
+
+
+Started GET "/" for ::1 at 2015-04-16 13:49:19 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 13:49:19 +0800
+
+
+Started DELETE "/todos/3" for ::1 at 2015-04-16 13:49:25 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"q23cr9BbdrnxM2wxBuqRoElQWUnfPsnvLXUF1JEbOqrmXhH3QRGdWJyVjwc6+5UQlQL9smTyVed1avTJAQb7og==", "id"=>"3"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 3]]
+  [1m[35m (22.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 28ms (ActiveRecord: 23.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:49:25 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/todos/2" for ::1 at 2015-04-16 13:49:26 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OhI2TrNwKyZhn/ZSNJJ12ZKMYCfJoRLEg21L7Kd9gjp3IfsWIjrAxww5FWQIg3FpTt7E3HJtjszbcrrxN2BDMg==", "id"=>"2"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "todos" WHERE "todos"."id" = ?  [["id", 2]]
+  [1m[36m (11.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 15ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:49:26 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.4ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/todos/4" for ::1 at 2015-04-16 13:49:28 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M11A9QXiUUOaAHDBmAldEfq0brujE+rOJJRMBc2VCCp+bo2tlKi6ovemk/ekGFmhJubKQBjfdsZ8i70YXYjJIg==", "id"=>"4"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:49:28 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.9ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:49:32 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (2.6ms)
+  Rendered todos/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 13:49:44 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TPhj+gk7nDB14tKEzgnjewmRvk6Skjz0oLe2Gh2gKW0By66imHF30RhEMbLyGOfL1cMatSleoPz4qEcHjb3oZQ==", "todo"=>{"content"=>"oh", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "oh"], ["is_done", "f"], ["created_at", "2015-04-16 05:49:44.794897"], ["updated_at", "2015-04-16 05:49:44.794897"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:49:44 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 37ms (Views: 35.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:49:57 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.8ms)
+  Rendered todos/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 13:50:01 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z7Bm+U2sIqGApQkRJ94Hp7PayGwrVQ6LKqmhLz0tEK+Cg6uh3ObJQO0D6icbzwMXb4hsl5CZkoNytlAyrTDRpw==", "todo"=>{"content"=>"ya", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "ya"], ["is_done", "f"], ["created_at", "2015-04-16 05:50:01.912797"], ["updated_at", "2015-04-16 05:50:01.912797"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:50:01 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/6/done" for ::1 at 2015-04-16 13:50:03 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"2EkGpWEUMhpZ19xRxdC9kn0hqdREJOlv29LbbPpYrdaVesv98F7Z+zRxP2f5wbkioXMNL//odWeDzSpxakVs3g==", "id"=>"6"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:50:03.951549"], ["id", 6]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:50:03 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:50:54 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/todos.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/scaffolds.self-4deccab453ead442f51a5f9f36d61f00eda19c0072cc81321eeecec4912fdbde.css?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/todos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2015-04-16 13:50:54 +0800
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:50:56 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (2.0ms)
+  Rendered todos/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 13:50:59 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OUnwBkm8e0dHjvrtYEY6S0xqWQhqgaNdVuSAQHsaw5p0ej1e2PaQpiooGdtcVz77kDj989FNP1UO+3Fd6wcCkg==", "todo"=>{"content"=>"ㄝ"}, "commit"=>"Create Todo"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "ㄝ"], ["created_at", "2015-04-16 05:50:59.378992"], ["updated_at", "2015-04-16 05:50:59.378992"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:50:59 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/7/edit" for ::1 at 2015-04-16 13:51:02 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered todos/_form.html.erb (1.3ms)
+  Rendered todos/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/7" for ::1 at 2015-04-16 13:51:05 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gjkUA2fgUlVHxdAxbo0U4x16mKZQlfDPcBwdaRhy+CvOykInNVqqDi59Hb5qzDjUCdOmSKOy8tl34FoNHwK6A==", "todo"=>{"content"=>"ㄝㄛ"}, "commit"=>"Update Todo", "id"=>"7"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "content" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["content", "ㄝㄛ"], ["updated_at", "2015-04-16 05:51:05.616256"], ["id", 7]]
+  [1m[35m (20.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 26ms (ActiveRecord: 21.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:05 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 43.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/5/edit" for ::1 at 2015-04-16 13:51:43 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered todos/_form.html.erb (2.1ms)
+  Rendered todos/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/5" for ::1 at 2015-04-16 13:51:48 +0800
+Processing by TodosController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered todos/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:50 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:51:53 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.3ms)
+  Rendered todos/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:54 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/5/done" for ::1 at 2015-04-16 13:51:56 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"5XEX9Y33W8lihUtl1u93WV2w2ITbdfQLixMri4l2kaqoQtqtHL2wKA8jqFPq/nPpgeJ8f2C5aAPTDNqWGWtQog==", "id"=>"5"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:51:56.097805"], ["id", 5]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:56 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/6/done" for ::1 at 2015-04-16 13:51:57 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"11slSGxwLed4MjjAqdYzbgkz0tEGcMnrKyn+QxZUUbGaaOgQ/TrGBhWU2/aVxzfe1WF2Kr28VeNzNg9ehkmQuQ==", "id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:51:57.547733"], ["id", 6]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:57 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/7/done" for ::1 at 2015-04-16 13:51:58 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"6mjWuopsnKBeUprF31yuAVWkSWc49PgBFiYWEgZE+T6nWxviGyZ3QTP0efPjTaqxifbtnIM4ZAlOOecPllk4Ng==", "id"=>"7"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:51:58.231975"], ["id", 7]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:51:58 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 13:53:07 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.1ms)
+  Rendered todos/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:55:55 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:55:58 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/5/done" for ::1 at 2015-04-16 13:56:05 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"5eecMvW+TMVRhvpLqDOcd1t1QFcNm8QIl7vXcdQKkkSo1FFqZPSnJDwgGX2UIpjHhyfkrLZXWADPpCZsRBdTTA==", "id"=>"5"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:56:05.999530"], ["id", 5]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:06 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/todos/5/done" for ::1 at 2015-04-16 13:56:06 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"L5+J5XCPr7heL6EXCnYhroHct6EsxCd0oh7hDP5ZgQZirES94cVEWTOJQiE2ZyUeXY4TWpcIu3z6ARARbkRADg==", "id"=>"5"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:56:06.512128"], ["id", 5]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:06 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/5/done" for ::1 at 2015-04-16 13:56:06 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"PnzWSBVLPLvNTcLaESTU6eDX1UDugxLH5tv5WUBaanxzTxsQhAHXWqDrIewtNdBZPIVxu1VPjs++xAhE0EerdA==", "id"=>"5"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:56:06.914496"], ["id", 5]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:06 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/5/done" for ::1 at 2015-04-16 13:56:07 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"OV18CJLSRcrt2OIb1SgUo8aJ/s5OvvAatiK+qn4+f4d0brFQA5iuK4B+AS3pORATGttaNfVybBLuPU+37iO+jw==", "id"=>"5"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "t"], ["updated_at", "2015-04-16 05:56:07.272949"], ["id", 5]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:07 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/6/done" for ::1 at 2015-04-16 13:56:07 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"LKQeqAv2S2dBZIhDaOYo0vidSIEFKecKoyMj/Nflzqhhl9PwmryghizCa3VU9yxiJM/ser7lewL7PNLhR/gPoA==", "id"=>"6"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "t"], ["updated_at", "2015-04-16 05:56:07.912593"], ["id", 6]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:07 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/7/done" for ::1 at 2015-04-16 13:56:08 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"APjUug4ip7vLqSih2fwuLtYRbhw1fCRDH7JKBdcTmGRNyxnin2hMWqYPy5fl7SqeCkPK546wuEtHrbsYRw5ZbA==", "id"=>"7"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?  [["is_done", "f"], ["updated_at", "2015-04-16 05:56:08.428269"], ["id", 7]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:08 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/6/done" for ::1 at 2015-04-16 13:56:09 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"WbaeWvkkb9FmKq8qCqze2VE++lukmEUb4dCFvzdNol4UhVMCaG6EMAuMTBw2vdppjWxeoB9U2RO5z3Sip1BjVg==", "id"=>"6"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "f"], ["updated_at", "2015-04-16 05:56:09.007819"], ["id", 6]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:09 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 33ms (Views: 31.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:56:10 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:56:11 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:56:12 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:56:13 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.3ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:56:13 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 47ms (Views: 45.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 13:56:14 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[36mTodo Load (0.5ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'[0m
+  Rendered todos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 13:56:14 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'
+  Rendered todos/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 13:56:15 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[36mTodo Load (0.5ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/todos/5/edit" for ::1 at 2015-04-16 13:56:18 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered todos/_form.html.erb (1.4ms)
+  Rendered todos/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/todos/5" for ::1 at 2015-04-16 13:56:20 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vg7mC+YphLSEZuFcSmPiglTttcKK7JVii6NWGN6Fgp0bPStTd2NvVenAAmp2cuYyiL8ROTEgCWrTvKcFTphDlQ==", "todo"=>{"content"=>"oh"}, "commit"=>"Update Todo", "id"=>"5"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 13:56:20 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:15:44 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 349ms (Views: 320.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-04-16 15:15:44 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-04-16 15:15:44 +0800
+
+
+Started DELETE "/todos/5" for ::1 at 2015-04-16 15:15:50 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hDWQ+QH+59Mov0VT1VgaUBiLJepHstGnfa4F/24Dy3nJBl2hkLQMMkUZpmXpSR7gxNmBEfx+Ta8lsfTi/h4KcQ==", "id"=>"5"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 51ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:15:50 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/todos/6" for ::1 at 2015-04-16 15:15:51 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"M5MuL/srL3GDbIn9o8yDy5IVailC0BoFJvqBB0vfLL9+oON3amHEkO7Kasuf3Yd7TkfO0vkchg1+5XAa28Lttw==", "id"=>"6"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "todos" WHERE "todos"."id" = ?  [["id", 6]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:15:51 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/todos/7" for ::1 at 2015-04-16 15:15:52 +0800
+Processing by TodosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Mn5BjJwFrHnES8WNm67M5WONEj/Aak6KgvoAXJWATFh/TYzUDU9HmKntJrunv8hVv9+2xHum0oLa5fFBBZ2NUA==", "id"=>"7"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:15:52 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 15:15:53 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (28.5ms)
+  Rendered todos/new.html.erb within layouts/application (66.3ms)
+Completed 200 OK in 93ms (Views: 92.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 15:15:55 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qBglYNQGrjNNXK2zioGNrJL06hf/HYMS8yraZk9mkSvlK+g4RUxF0iD6ToW2kIkcTqZO7ETRHxqrNSt733tQIw==", "todo"=>{"content"=>",,,,", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", ",,,,"], ["is_done", "f"], ["created_at", "2015-04-16 07:15:55.319921"], ["updated_at", "2015-04-16 07:15:55.319921"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:15:55 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 15:15:57 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 49ms (Views: 47.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 15:15:58 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.4ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 15:15:58 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 66ms (Views: 64.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 15:16:00 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.6ms)
+  Rendered todos/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2015-04-16 15:16:02 +0800
+Processing by TodosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZnJTF2eOZ/Iw6b2HdFO3el/esMQafFQkNQfZEWGKWtYrQZ5P9sSME11PXrFIQrPKg4wUP6GwyCxtGCgM8Zeb3g==", "todo"=>{"content"=>"klk;", "is_done"=>"0"}, "commit"=>"Create Todo"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "todos" ("content", "is_done", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "klk;"], ["is_done", "f"], ["created_at", "2015-04-16 07:16:02.658317"], ["updated_at", "2015-04-16 07:16:02.658317"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 6ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:16:02 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/todos/9/done" for ::1 at 2015-04-16 15:16:03 +0800
+Processing by TodosController#done as HTML
+  Parameters: {"authenticity_token"=>"k1s8QfHIih9tqOPzS3orIxXQh0rYL14sOFsKbcS1LsHeaPEZYIJh/gAOAMV3ay+TyYIjsWPjwiRgRPtwVKjvyQ==", "id"=>"9"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "todos" SET "is_done" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["is_done", "t"], ["updated_at", "2015-04-16 07:16:03.516870"], ["id", 9]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:16:03 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos?commit=%E5%B7%B2%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=true" for ::1 at 2015-04-16 15:16:04 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"已完成", "utf8"=>"✓", "is_done"=>"true"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 't'
+  Rendered todos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E6%9C%AA%E5%AE%8C%E6%88%90&utf8=%E2%9C%93&is_done=false" for ::1 at 2015-04-16 15:16:05 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"未完成", "utf8"=>"✓", "is_done"=>"false"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."is_done" = 'f'[0m
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos?commit=%E9%A1%AF%E7%A4%BA%E5%85%A8%E9%83%A8&utf8=%E2%9C%93&is_done=" for ::1 at 2015-04-16 15:16:05 +0800
+Processing by TodosController#index as HTML
+  Parameters: {"commit"=>"顯示全部", "utf8"=>"✓", "is_done"=>""}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/new" for ::1 at 2015-04-16 15:16:06 +0800
+Processing by TodosController#new as HTML
+  Rendered todos/_form.html.erb (1.2ms)
+  Rendered todos/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:16:28 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 29ms (Views: 28.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/todos/8/edit" for ::1 at 2015-04-16 15:16:29 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mTodo Load (0.1ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered todos/_form.html.erb (1.4ms)
+  Rendered todos/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/8" for ::1 at 2015-04-16 15:16:36 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PU1xf+FxVXT23fEpApA5wm04NioR3S87yTuBnjiFKN1wfrwncDu+lZt7Eh8+gT1ysWqS0aoRszORJHCDqJjp1Q==", "todo"=>{"content"=>",,,,", "is_done"=>"0"}, "commit"=>"Update Todo", "id"=>"8"}
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:16:36 +0800
+Processing by TodosController#index as HTML
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos"
+  Rendered todos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/todos/9/edit" for ::1 at 2015-04-16 15:16:38 +0800
+Processing by TodosController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered todos/_form.html.erb (1.4ms)
+  Rendered todos/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/todos/9" for ::1 at 2015-04-16 15:16:39 +0800
+Processing by TodosController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mUeQU7HqUMxro26E0GZPa/ld6ymbsZ/JonAd/WQk8pfUdF0LIKC7LQYFjbLsd0vbJQ9P0iB9A8H6b+zg9Dkznw==", "todo"=>{"content"=>"klk;", "is_done"=>"1"}, "commit"=>"Update Todo", "id"=>"9"}
+  [1m[35mTodo Load (0.2ms)[0m  SELECT  "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/todos
+Completed 302 Found in 14ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/todos" for ::1 at 2015-04-16 15:16:39 +0800
+Processing by TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos"[0m
+  Rendered todos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 50.4ms | ActiveRecord: 0.1ms)
